@@ -1,0 +1,225 @@
+Advanced RAG Pipeline - Complete Project Structure
+====================================================
+
+rag-pipeline/
+│
+├── 📚 Documentation Files
+│   ├── README.md                    # Main overview and quick start
+│   ├── SETUP.md                     # Detailed setup instructions
+│   ├── ARCHITECTURE.md              # System architecture and design
+│   ├── API_TESTING.md              # API testing guide and examples
+│   ├── DEPLOYMENT.md               # Production deployment guide
+│   ├── EXAMPLE_QUERIES.md          # Sample queries to try
+│   ├── UI_GUIDE.md                 # User interface guide
+│   ├── PROJECT_SUMMARY.md          # Complete project summary
+│   ├── QUICK_REFERENCE.md          # Quick reference card
+│   └── PROJECT_TREE.txt            # This file
+│
+├── 🚀 Quick Start Scripts
+│   ├── start.sh                     # Linux/Mac startup script
+│   └── start.bat                    # Windows startup script
+│
+├── 🐳 Infrastructure
+│   ├── docker-compose.yml           # Docker services (Qdrant, Redis, PostgreSQL)
+│   └── .gitignore                   # Git ignore rules
+│
+├── 🔧 Backend (FastAPI + Python)
+│   └── backend/
+│       ├── app/
+│       │   ├── __init__.py
+│       │   ├── main.py              # FastAPI application entry point
+│       │   │
+│       │   ├── api/
+│       │   │   ├── __init__.py
+│       │   │   └── routes.py        # API endpoints (upload, query, metrics)
+│       │   │
+│       │   ├── core/
+│       │   │   ├── __init__.py
+│       │   │   ├── config.py        # Configuration and settings
+│       │   │   └── logging.py       # Logging setup
+│       │   │
+│       │   ├── models/
+│       │   │   ├── __init__.py
+│       │   │   └── schemas.py       # Pydantic models and schemas
+│       │   │
+│       │   └── services/
+│       │       ├── __init__.py
+│       │       ├── document_processor.py  # Document parsing and chunking
+│       │       ├── embeddings.py          # OpenAI embeddings service
+│       │       ├── rag_pipeline.py        # RAG pipeline orchestration
+│       │       └── vector_store.py        # Qdrant vector database client
+│       │
+│       ├── requirements.txt         # Python dependencies
+│       └── .env.example            # Environment variables template
+│
+├── 🎨 Frontend (React + TypeScript)
+│   └── frontend/
+│       ├── src/
+│       │   ├── components/
+│       │   │   ├── ChatInterface.tsx      # Chat UI with Q&A
+│       │   │   ├── DocumentUpload.tsx     # File upload interface
+│       │   │   ├── Header.tsx             # App header
+│       │   │   ├── MetricsDashboard.tsx   # Metrics and monitoring
+│       │   │   └── Sidebar.tsx            # Navigation sidebar
+│       │   │
+│       │   ├── services/
+│       │   │   └── api.ts                 # API client and types
+│       │   │
+│       │   ├── utils/
+│       │   │   └── cn.ts                  # Utility functions
+│       │   │
+│       │   ├── App.tsx                    # Main application component
+│       │   ├── main.tsx                   # React entry point
+│       │   └── index.css                  # Global styles (Tailwind)
+│       │
+│       ├── index.html                     # HTML template
+│       ├── package.json                   # Node dependencies
+│       ├── vite.config.ts                 # Vite configuration
+│       ├── tsconfig.json                  # TypeScript config
+│       ├── tsconfig.node.json             # TypeScript node config
+│       ├── tailwind.config.js             # Tailwind CSS config
+│       └── postcss.config.js              # PostCSS config
+│
+└── 📄 Sample Documents
+    └── sample-documents/
+        └── sample.txt                     # Test document for demo
+
+Key Features by Component
+=========================
+
+Backend Services:
+├── Document Processor
+│   ├── PDF extraction
+│   ├── DOCX parsing
+│   ├── Text chunking
+│   └── Metadata tracking
+│
+├── Embedding Service
+│   ├── OpenAI integration
+│   ├── Batch processing
+│   └── Configurable models
+│
+├── Vector Store
+│   ├── Qdrant client
+│   ├── CRUD operations
+│   ├── Similarity search
+│   └── Metadata filtering
+│
+└── RAG Pipeline
+    ├── Query processing
+    ├── Hybrid retrieval
+    ├── Optional reranking
+    ├── LLM generation
+    └── Streaming support
+
+Frontend Components:
+├── Chat Interface
+│   ├── Real-time Q&A
+│   ├── Message history
+│   ├── Source citations
+│   └── Streaming responses
+│
+├── Document Upload
+│   ├── Drag-and-drop
+│   ├── Progress tracking
+│   ├── Format validation
+│   └── Success feedback
+│
+├── Metrics Dashboard
+│   ├── System statistics
+│   ├── Service health
+│   ├── Performance metrics
+│   └── Real-time updates
+│
+└── Navigation
+    ├── Sidebar menu
+    ├── View switching
+    └── Status indicators
+
+Infrastructure Services:
+├── Qdrant (Vector Database)
+│   ├── Port: 6333
+│   ├── Dashboard: 6334
+│   └── Storage: Docker volume
+│
+├── Redis (Cache)
+│   ├── Port: 6379
+│   └── Persistence: Enabled
+│
+└── PostgreSQL (Metadata)
+    ├── Port: 5432
+    ├── Database: rag_db
+    └── User: rag_user
+
+Technology Stack Summary
+========================
+
+Backend:
+- FastAPI 0.109.0
+- Python 3.10+
+- LangChain
+- OpenAI API
+- Qdrant Client
+- PyPDF, python-docx
+- Celery + Redis
+- SQLAlchemy
+
+Frontend:
+- React 18
+- TypeScript
+- Vite
+- TailwindCSS
+- React Query
+- Axios
+- Lucide Icons
+- React Markdown
+
+Infrastructure:
+- Docker + Docker Compose
+- Qdrant (Vector DB)
+- Redis (Cache)
+- PostgreSQL (Database)
+
+Development Tools:
+- ESLint
+- Prettier (implicit)
+- TypeScript Compiler
+- Uvicorn (ASGI server)
+
+File Count Summary
+==================
+- Documentation: 10 files
+- Backend Code: 11 files
+- Frontend Code: 14 files
+- Configuration: 8 files
+- Sample Data: 1 file
+- Scripts: 2 files
+Total: ~46 files
+
+Lines of Code (Approximate)
+============================
+- Backend: ~1,500 lines
+- Frontend: ~1,200 lines
+- Configuration: ~300 lines
+- Documentation: ~3,000 lines
+Total: ~6,000 lines
+
+Ready to Use!
+=============
+✅ Complete backend implementation
+✅ Beautiful frontend interface
+✅ Docker infrastructure setup
+✅ Comprehensive documentation
+✅ Sample data included
+✅ Testing guides
+✅ Deployment instructions
+✅ Quick start scripts
+
+Next Steps:
+1. Run: docker-compose up -d
+2. Setup backend (see SETUP.md)
+3. Setup frontend (see SETUP.md)
+4. Upload sample document
+5. Start asking questions!
+
+Happy coding! 🚀
