@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_BASE_URL = '/api/v1';
+const API_BASE_URL = import.meta.env.VITE_API_URL || 'https://web-production-a0686.up.railway.app/api/v1';
 
 export interface QueryRequest {
   query: string;
