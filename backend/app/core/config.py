@@ -14,6 +14,7 @@ class Settings(BaseSettings):
     
     # Services
     QDRANT_URL: str = "http://localhost:6333"
+    QDRANT_API_KEY: str = ""
     REDIS_URL: str = "redis://localhost:6379"
     DATABASE_URL: str = "postgresql+asyncpg://rag_user:rag_password@localhost:5432/rag_db"
     OLLAMA_URL: str = "http://localhost:11434"

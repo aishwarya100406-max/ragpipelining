@@ -8,7 +8,12 @@ from app.core.logging import logger
 
 class VectorStore:
     def __init__(self):
-        self.client = QdrantClient(url=settings.QDRANT_URL)
+        # Initialize Qdrant client with API key if provided
+        qdrant_kwargs = {"url": settings.QDRANT_URL}
+        if hasattr(settings, 'QDRANT_API_KEY') and settings.QDRANT_API_KEY:
+            qdrant_kwargs["api_key"] = settings.QDRANT_API_KEY
+        
+        self.client = QdrantClient(**qdrant_kwargs)
         self.collection_name = settings.VECTOR_COLLECTION
         self._ensure_collection()
     
